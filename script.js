@@ -16,10 +16,9 @@ function playChoice() {
     return ans;
 }
 
-playScore = 0
-compScore = 0
+function playGame(){
 
-function playRound(playPick, compPick) {
+    function playRound(playPick, compPick) {
     playPick = playPick.toLowerCase();
     if((playPick === "rock" && compPick === "Rock") || (playPick === "paper" && compPick === "Paper") || (playPick === "scissors" && compPick === "Scissors")){
         console.log("It's a draw! Play again!")
@@ -30,9 +29,25 @@ function playRound(playPick, compPick) {
         console.log("You lose! " + compPick + " beats " + playPick + "!");
         compScore++;
     }
+    }
+
+    playScore = 0
+    compScore = 0
+
+    while(playScore < 3 && compScore < 3){
+        playPick = playChoice();
+        compPick = compChoice();
+        playRound(playPick, compPick);
+        console.log("Current score is Player: " + playScore + " and Computer: " + compScore);
+    }
+
+    if(playScore === 3){
+        console.log("Player Wins!")
+    } else {
+        console.log("Computer Wins!")
+    }
+
+
 }
 
-const playPick = playChoice();
-const compPick = compChoice();
-
-playRound(playPick, compPick);
+playGame();
