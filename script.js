@@ -11,4 +11,7 @@ function compChoice() {
     }
 }
 
-compChoice();
+function playChoice() {
+    ans = prompt("Choose Rock, Paper, or Scissors!");
+    return ans;
+}
